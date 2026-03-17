@@ -3,33 +3,78 @@ body {
     padding: 0;
 }
 
+
+
+.button {
+    display: inline-block;
+    padding: 12px 24px;
+    background-color: #ff6b35;
+    color: white;
+    text-decoration: none;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    border-radius: 4px;
+    border: none;
+    transition: background-color 0.3s ease;
+}
+
+.button.phone{
+    background-color: rgba(105, 99, 97, 0.7);
+}
+
+
+.button:hover {
+    background-color: #ff8255;
+}
+
+.button:active {
+    background-color: #e55a2b;
+}
+
+a.button {
+    text-decoration: none;
+}
+
+
 .main_div{
-    background-color: black;
+    background-color: rgb(9, 13, 33);
+}
+.body_div{
+    background-color: grey;
+    height: 50vw;
+    padding: 20px 40px;
+
 }
 .without_decoration{
     text-decoration: none;
 }
 
-#comming_soon{
-    font-family: 'Open Sans', sans-serif;
-    margin-top: 20vw;
-    font-size: 100px;
-    text-align: center;
+.logos{
+    padding-top: 25px;
+    padding-left: 25px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
+
+
 .underheader{
-    width: 40%;
+    width: 95%;
     display: flex;
     justify-content: space-between;
     margin: 0 auto 0 auto;
-    padding-top: 5px;
+    padding-top: 20px;
     text-align: center;
     color:aliceblue;
 
 }
 
-.button{
+.button_top{
     font-family: 'Open Sans', sans-serif;
-    width: 100px;
+    width: 120px;
+    margin-bottom:20px ;
+    font-size: 20px;
     color:aliceblue;
     text-decoration: none;
 
@@ -44,4 +89,40 @@ body {
     background-color: black;
     color: aliceblue;
     width: 100vw;
+}
+
+.contact_buttons{
+    text-align: right;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 20px;
+}
+
+.contact_buttons p,
+.contact_buttons button {
+    margin: 0;                /* убираем стандартные отступы */
+}
+#mail{
+    font-family: 'Open Sans', sans-serif;
+    color: aliceblue;
+    font-size: 20px;
+}
+
+.body_text{
+    padding-top: 25px;
+    padding-left: 25px;
+}
+
+.main_text{
+
+    font-family: 'Open Sans', sans-serif;
+    color: aliceblue;
+    font-size: 50px;
+}
+h3.main_text{
+    font-size: 30px;
+}
+h4.main_text{
+    font-size: 20px;
 }
