@@ -25,9 +25,14 @@
     <div class="calculator" style="background:url(https://dinord.ru/wp-content/uploads/2024/12/frame-81.png) no-repeat center top/cover">
       <div class="calculator_back">
         <div>
-          <div id="result" class="result">
-            0
+          <div class = "screen">
+            <div id="result" class="result">
+              0
+            </div>
+            <div id="historyArea" class="history-panel">
+            </div>
           </div>
+
         </div>
         <!-- блок с кнопками калькулятора. -->
         <div>
@@ -66,14 +71,26 @@
             <button id="btn_op_equal" class="my-btn primary execute">=</button>
           </div>
 
+          <div class="calc-row">
+                <button id="btn_op_accplus"  class="my-btn">A+</button>
+                <button id="btn_op_accminus" class="my-btn">A−</button>
+                <button id="btn_digit_000"   class="my-btn">000</button>
+                <button id="btn_op_custom"   class="my-btn">1/x</button>
+            </div>
+            <div class="calc-row three-cols" style="margin-top:3px;">
+                <select id="list" class="calc-select" style="grid-column: span 3;">
+                    <option value="1">Обычный</option>
+                    <option value="2">Инженерный</option>
+                    <option value="3">Программный</option>
+                </select>
+                <button id="switch" class="my-btn op">☀</button>
+            </div>
           <div>
             <a href="https://github.com/kirigaya1456/NAP" target="_blank"><button id="github_button" class="my-btn github"> GitHub </button></a>
           </div>
       </div>
     </div>
-    <div>
-      <img src="add/images/chigur.png" alt="Чигур" id="chigur">
-    </div>
+
 
   </div>
 
