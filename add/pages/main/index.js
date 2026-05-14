@@ -5,30 +5,20 @@ import { ProductPage } from "../product/index.js";
 export class MainPage {
     constructor(parent) {
         this.parent = parent;
+        this.data = []; // Хранилище загруженных данных
     }
 
-    getData() {
-        return [
-            {
-                id: 1,
-                // Используем тематичные иконки или картинки серверов
-                src: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?q=80&w=1000&auto=format&fit=crop",
-                name: "Виртуальные серверы (VPS/VDS)",
-                description: "Масштабируемые облачные серверы для ваших проектов. Высокий аптайм и SSD NVMe диски."
-            },
-            {
-                id: 2,
-                src: "https://images.unsplash.com/photo-1597852074816-d933c7d2b988?q=80&w=1000&auto=format&fit=crop",
-                name: "Выделенные серверы",
-                description: "Максимальная производительность. Полный контроль над физическим оборудованием дата-центра."
-            },
-            {
-                id: 3,
-                src: "https://habrastorage.org/getpro/habr/upload_files/f15/134/52c/f1513452c81d47bc7749c8c5d5005326.png",
-                name: "Балансировщики нагрузки",
-                description: "Интеллектуальное распределение трафика между дата-центрами для отказоустойчивости."
-            }
-        ];
+    async getData() {
+        try {
+            // Делаем GET запрос к нашему Express API
+            const response = await fetch('http://localhost:3000/stocks');
+            if (!response.ok) throw new Error('Ошибка сети при загрузке данных');
+
+            return await response.json();
+        } catch (error) {
+            console.error('Ошибка получения данных:', error);
+            return []; // Если сервер недоступен, возвращаем пустой массив, чтобы страница не ломалась
+        }
     }
 
     get pageRoot() {
@@ -43,7 +33,8 @@ export class MainPage {
     clickCard(e) {
     const id = e.target.dataset.id
 
-    const cat = this.getData().find(item => item.id == id)
+    // Ищем товар в уже загруженных данных
+    const cat = this.data.find(item => item.id == id)
 
     const page = new ProductPage(this.parent, cat)
     page.render()
@@ -54,11 +45,14 @@ export class MainPage {
         alert.render(`✅ Услуга «${item.name}» добавлена в вашу заявку!`);
     }
 
-    render() {
+    async render() {
         this.parent.innerHTML = '';
         this.parent.insertAdjacentHTML('beforeend', this.getHTML());
 
-        this.getData().forEach(cat => {
+        // Загружаем данные перед отрисовкой карточек
+        this.data = await this.getData();
+
+        this.data.forEach(cat => {
             const card = new CatCardComponent(this.pageRoot);
             card.render(
                 cat,

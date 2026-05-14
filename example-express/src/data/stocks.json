@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "src": "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?q=80&w=1000&auto=format&fit=crop",
+    "name": "Виртуальные серверы (VPS/VDS)",
+    "description": "Масштабируемые облачные серверы для ваших проектов. Высокий аптайм и SSD NVMe диски."
+  },
+  {
+    "id": 2,
+    "src": "https://images.unsplash.com/photo-1597852074816-d933c7d2b988?q=80&w=1000&auto=format&fit=crop",
+    "name": "Выделенные серверы",
+    "description": "Максимальная производительность. Полный контроль над физическим оборудованием дата-центра."
+  },
+  {
+    "id": 3,
+    "src": "https://habrastorage.org/getpro/habr/upload_files/f15/134/52c/f1513452c81d47bc7749c8c5d5005326.png",
+    "name": "Балансировщики нагрузки",
+    "description": "Интеллектуальное распределение трафика между дата-центрами для отказоустойчивости."
+  },
+  {
+    "id": 4,
+    "src": "https://static.beeline.ru/upload/images/business/services/12702-ddos-black.jpg",
+    "name": "Защита от DDoS-атак",
+    "description": "Безопасность вашех дата-центров от нежелательных нападений"
+  }
+]
