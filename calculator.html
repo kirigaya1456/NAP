@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Калькулятор</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="add/style.css">
+  <script type="text/javascript" src="script.js"></script>
+</head>
+
+<body class="main_div">
+    <div  >
+        <div class = underheader>
+            <a href="add/main.html" class="button_top">Главная</a>
+            <a href="#" class="button_top">Услуги</a>
+            <a href="#" class="button_top">Решения</a>
+            <a href="calculator.html" class="button_top">Калькулятор</a>
+            <a href="add/about.html" class="button_top">О компании</a>
+            <a href="#" class="button_top">Контакты</a>
+        </div>
+    </div>
+  <div>
+
+  <div>
+    <div class="calculator" style="background:url(https://dinord.ru/wp-content/uploads/2024/12/frame-81.png) no-repeat center top/cover">
+      <div class="calculator_back">
+        <div>
+          <div class = "screen">
+            <div id="result" class="result">
+              0
+            </div>
+            <div id="historyArea" class="history-panel">
+            </div>
+          </div>
+
+        </div>
+        <!-- блок с кнопками калькулятора. -->
+        <div>
+          <!--горизонтальный ряд из четырех кнопок-->
+          <div>
+            <button id="btn_op_clear" class="my-btn secondary">C</button>    <!-- про тэг кнопки: https://www.w3schools.com/tags/tag_button.asp -->
+            <button id="btn_op_sign" class="my-btn secondary">+/-</button>
+            <button id="btn_op_percent" class="my-btn secondary">%</button>
+            <button id="btn_op_div" class="my-btn primary">/</button>
+          </div>
+
+          <div>
+            <button id="btn_digit_7" class="my-btn">7</button>
+            <button id="btn_digit_8" class="my-btn">8</button>
+            <button id="btn_digit_9" class="my-btn">9</button>
+            <button id="btn_op_mult" class="my-btn primary">x</button>
+          </div>
+
+          <div>
+            <button id="btn_digit_4"class="my-btn">4</button>
+            <button id="btn_digit_5"class="my-btn">5</button>
+            <button id="btn_digit_6"class="my-btn">6</button>
+            <button id="btn_op_minus" class="my-btn primary">-</button>
+          </div>
+
+          <div>
+            <button id="btn_digit_1"class="my-btn">1</button>
+            <button id="btn_digit_2"class="my-btn">2</button>
+            <button id="btn_digit_3"class="my-btn">3</button>
+            <button id="btn_op_plus" class="my-btn primary">+</button>
+          </div>
+
+          <div>
+            <button id="btn_digit_0"class="my-btn">0</button>
+            <button id="btn_digit_dot"class="my-btn">.</button>
+            <button id="btn_op_equal" class="my-btn primary execute">=</button>
+          </div>
+
+          <div class="calc-row">
+                <button id="btn_op_accplus"  class="my-btn">A+</button>
+                <button id="btn_op_accminus" class="my-btn">A−</button>
+                <button id="btn_digit_000"   class="my-btn">000</button>
+                <button id="btn_op_custom"   class="my-btn">1/x</button>
+            </div>
+            <div class="calc-row three-cols" style="margin-top:3px;">
+                <select id="list" class="calc-select" style="grid-column: span 3;">
+                    <option value="1">Обычный</option>
+                    <option value="2">Инженерный</option>
+                    <option value="3">Программный</option>
+                </select>
+                <button id="switch" class="my-btn op">☀</button>
+            </div>
+          <div>
+            <a href="https://github.com/kirigaya1456/NAP" target="_blank"><button id="github_button" class="my-btn github"> GitHub </button></a>
+          </div>
+      </div>
+    </div>
+
+
+  </div>
+
+
+</body>
+</html>

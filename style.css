@@ -1,0 +1,129 @@
+
+/* опишем базовый стиль кнопки калькулятора */
+.my-btn {
+  margin-right: 5px;           /* задаем отступ от кнопки справа */
+  margin-top: 5px;             /* задаем отступ от кнопки сверху*/
+  width: 50px;                 /* задаем ширину кнопки */
+  height: 50px;                /* задаем высоту кнопки */
+  border-radius: 25%;          /* округляем кнопку */
+  border: none;                /* отключаем обводку */
+  background: #515151;         /* задаем серый цвет кнопки */
+  color: white;                /* задаем белый цвет текста внутри кнопки */
+  font-size: 1.5rem;           /* увеличим размер шрифта */
+  font-family: Arial, Helvetica, sans-serif; /* сменим шрифт */
+  cursor: pointer;             /* при наведении на кнопку курсор будет изменен*/
+  user-select: none;           /* отключаем возможность выделить текст внутри кнопки */
+}
+
+/* hover - это состояние элемента, когда на него наведен курсор */
+.my-btn:hover {
+  background: darkgray; /* при наведение курсора на кнопку, она будет окрашена в серый */
+}
+
+/* active - это состояние активации элемента. В случае кнопки - нажатие на нее */
+.my-btn:active {
+  filter: brightness(130%); /* увеличим интенсивность цвета для эффекта вспышки */
+}
+
+/* селектор для кнопок первостепенных операций */
+.my-btn.primary {
+  background: #ff9801; /* цвет кнопки оранжевый */
+}
+
+/* селектор для кнопок второстепенных операций */
+.my-btn.secondary {
+  background: #a6a6a6; /* цвет кнопки сервый */
+}
+
+/* селектор для кнопки расчета выражения (=) */
+.my-btn.execute {
+  width: 110px;          /* сделаем кнопку шире других */
+  border-radius: 15px;   /* подкорректируем округлость */
+}
+
+.my-btn.github {
+  width: 230px;          /* сделаем кнопку шире других */
+  border-radius: 34px;   /* подкорректируем округлость */
+}
+
+.screen{
+  width: 220px;
+  height: 50px;
+  margin-bottom: 15px;         /* отступ снизу */
+  padding-right: 10px;         /* выступ справа */
+  background: rgb(73, 73, 73); /* цвет можно задавать и таким образом */
+  border-radius: 10px;
+}
+
+/* селектор для поля вывода результата */
+
+
+
+.result {
+
+  text-align: right;           /* примагнитим текст к правой стороне */
+  color: #ffffff;              /* цвет текста белый */
+  font-size: 1.5rem;
+  font-family: Arial, Helvetica, sans-serif;
+}
+#historyArea{
+
+  text-align: right;           /* примагнитим текст к правой стороне */
+  color: #737171;              /* цвет текста белый */
+  font-size: 1rem;
+  font-family: Arial, Helvetica, sans-serif;
+  border-radius: 10px;
+}
+.calculator{
+    background-color: #e55a2b;
+    height: 50vw;
+    padding: 20px 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.calculator_back{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-color: rgba(68, 63, 61, 0.8);
+  border-radius: 20px;
+  margin-bottom: -0px;
+  height: 600px;
+  width: 300px;
+}
+
+
+#chigur{
+  text-align: right;
+  margin-left: 75vw;
+  margin-bottom: -10px;
+  width: 20%;
+  opacity: 70%;
+}
+
+.calc-row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 4px;
+  margin-bottom: 10px;
+}
+
+.calc-select {
+  background: #3a3a3a;
+  color: #f5f3ee;
+  border: none;
+  border-radius: 10px;
+  padding: 0px 0px;
+  font-family: 'Raleway', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  width: 100%;
+}
+
+.my-btn.op     { background: #555;    color: #f5f3ee; }
