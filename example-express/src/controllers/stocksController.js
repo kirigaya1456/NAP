@@ -1,8 +1,8 @@
 const stocksService = require('../services/stocksService');
 
 const getAllStocks = (req, res) => {
-    const { name } = req.query;
-    const stocks = stocksService.findAll(name);
+    const { name, description } = req.query;
+    const stocks = stocksService.findAll(name, description);
     res.json(stocks);
 };
 
@@ -15,6 +15,18 @@ const getStockById = (req, res) => {
     }
 
     res.json(stock);
+};
+
+const getStockByDescription = (req, res) => {
+    // Получаем описание из параметров URL (например, /stocks/description/облачные) или query
+    const description = req.params.description || req.query.description;
+    const stocks = stocksService.findAll(null, description);
+
+    if (!stocks || stocks.length === 0) {
+        return res.status(404).json({ error: 'Услуги с таким описанием не найдены' });
+    }
+
+    res.json(stocks);
 };
 
 const createStock = (req, res) => {
@@ -54,6 +66,7 @@ const deleteStock = (req, res) => {
 module.exports = {
     getAllStocks,
     getStockById,
+    getStockByDescription,
     createStock,
     updateStock,
     deleteStock

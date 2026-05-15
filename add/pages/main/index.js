@@ -10,14 +10,13 @@ export class MainPage {
 
     async getData() {
         try {
-            // Делаем GET запрос к нашему Express API
             const response = await fetch('http://localhost:3000/stocks');
             if (!response.ok) throw new Error('Ошибка сети при загрузке данных');
 
             return await response.json();
         } catch (error) {
             console.error('Ошибка получения данных:', error);
-            return []; // Если сервер недоступен, возвращаем пустой массив, чтобы страница не ломалась
+            return [];
         }
     }
 
