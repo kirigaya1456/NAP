@@ -39,10 +39,37 @@
         </div>
     </div>
 
+    <div style="padding: 40px; text-align: center; font-family: 'Open Sans', sans-serif; background-color: rgba(255,255,255,0.05); margin: 40px 25px; border-radius: 10px;">
+        <h2 style="color: aliceblue;">Диагностика сети: Анализ уникальных пакетов (идентификаторов)</h2>
+        <p style="color: #ccc;"><b>Задание 2.8 (2 уровень):</b> Дан массив целых чисел. Необходимо написать функцию, возвращающую сумму всех уникальных (неповторяющихся) элементов.</p>
+
+        <div style="margin-top: 30px;">
+            <input type="text" id="arrayInput" placeholder="Введите числа через запятую: 1, 2, 3, 2, 4" style="padding: 12px; width: 400px; max-width: 90%; font-size: 16px; border: 1px solid #ccc; border-radius: 4px; outline: none;">
+        </div>
+        <br>
+        <button class="button" onclick="calculateUniqueSum()">Вычислить сумму</button>
+
+        <p id="result" style="font-size: 20px; font-weight: bold; margin-top: 30px; color: aliceblue;"></p>
+    </div>
+
+    <div style="padding: 40px; text-align: center; font-family: 'Open Sans', sans-serif; background-color: rgba(255,255,255,0.05); margin: 40px 25px; border-radius: 10px;">
+        <h2 style="color: aliceblue;">Оптимизация данных: Алгоритм сжатия (RLE)</h2>
+        <p style="color: #ccc;"><b>Задание 3.6 (3 уровень):</b> Напишите функцию rle, которая реализует RLE сжатие строки.</p>
+
+        <div style="margin-top: 30px;">
+            <input type="text" id="rleInput" placeholder="Например: AAAABBBCCXYZ" style="padding: 12px; width: 400px; max-width: 90%; font-size: 16px; border: 1px solid #ccc; border-radius: 4px; outline: none;">
+        </div>
+        <br>
+        <button class="button" onclick="calculateRLE()">Сжать строку</button>
+
+        <p id="rleResult" style="font-size: 20px; font-weight: bold; margin-top: 30px; color: aliceblue;"></p>
+    </div>
+
     <div class="body_text">
         <h2 class="main_text">Создайте свою собственную ит-инфраструктуру, используя виртуальные серверы</h2>
         <h4 class="main_text">Добро пожаловать в современный дата-центр, где Вы можете разместить оборудование или арендовать серверы для создания собственной облачной инфраструктуры. Наша команда профессионалов заботится о том, чтобы Ваши данные всегда были в надежных руках. Мы предлагаем стабильные каналы связи, бесперебойное питание, эффективное охлаждение, круглосуточную охрану и современные системы мониторинга, чтобы гарантировать безопасность и доступность данных в любое время.</h4>
     </div>
 
+    <script src="homework.js"></script>
 </body>
 </html>
