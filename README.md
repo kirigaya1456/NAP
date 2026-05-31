@@ -2,18 +2,16 @@
 
 **Цель** данной лабораторной работы - знакомство с инструментами построения пользовательских интерфейсов web-сайтов: HTML, CSS. В ходе выполнения работы, вам предстоит ознакомиться с кодом реализации простого калькулятора,  и затем выполнить задания по варианту.
 
-![Фото 1](assets/prototype.png)
-
-## План
-
-1. HTML- разметка
-2. Базовая структура HTML-документа
-3. Создание проекта
-4. Верстка калькулятора
-5. CSS
-6. Применение CSS к HTML-документу
-7. Стилизация верстки калькулятора с помощью CSS
-8. Задание
+## Содержание
+- [1. HTML-разметка](#1-html-разметка)
+- [2. Базовая структура HTML-документа](#2-базовая-структура-html-документа)
+- [3. Создание проекта](#3-создание-проекта)
+- [4. Верстка калькулятора](#4-верстка-калькулятора)
+- [5. CSS](#5-css)
+- [6. Применение CSS к HTML-документу](#6-применение-css-к-html-документу)
+- [7. Стилизация верстки калькулятора с помощью CSS](#7-стилизация-верстки-калькулятора-с-помощью-css)
+- [8. Задания для самостоятельной проработки](#8-задания-для-самостоятельной-проработки)
+- [9. Выполненные дополнительные задания](#9-выполненные-дополнительные-задания)
 
 ## 1. HTML-разметка
 
@@ -201,7 +199,6 @@ HTML-элементов существует большое количество
 
 Если открыть этот HTML-документ в браузере, мы получим не самый изящный калькулятор. Чтобы задать параметры внешнего вида элементов, необходимо использовать CSS.
 
-![Фото 2](assets/nocss.png)
 
 ## 5. CSS
 
@@ -239,7 +236,6 @@ CSS (***Cascading Style Sheets***) - каскадные таблицы стил�
 
     Теперь, при использовании тэга `<h1>` в HTML документе, ко всем заголовкам первого уровня будут применены заданные правила: синий цвет и размер шрифта в 12px.
 
-    ![Фото 3](assets/css-header.png)
 
 2. **CSS id Selector**
 
@@ -292,7 +288,6 @@ CSS (***Cascading Style Sheets***) - каскадные таблицы стил�
     </div>
     ```
 
-    ![Фото 4](assets/css-selectors.png)
 
 Также можно создать классовый селектор, дейсвующий только на конкретный тип HTML-элементов, например на параграфы:
 
@@ -477,3 +472,202 @@ p.my-large-italic {
 18. Сделайте сворачивающиеся и разворачивающиеся подробности (Автор -> ФИО, Группа);
 19. Добавьте поле с целью ЛР и подсветить слова: знакомство, HTML, CSS (с помощью тега).
 20. Скопируйте для калькулятора стилистику веб-ресурса, которая не будет повторяться с остальными студентами
+
+## 9. Выполненные дополнительные задания
+
+В ходе выполнения лабораторной работы были реализованы следующие дополнительные задания и элементы пользовательского интерфейса:
+
+### 1. Навигационное меню (Шапка)
+Добавлена панель навигации для перемещения между страницами («Главная», «Калькулятор», «О компании» и др.).
+
+```html
+<div class="underheader">
+    <a href="add/main.html" class="button_top">Главная</a>
+    <a href="#" class="button_top">Услуги</a>
+    <a href="#" class="button_top">Решения</a>
+    <a href="calculator.html" class="button_top">Калькулятор</a>
+    <a href="add/about.html" class="button_top">О компании</a>
+    <a href="#" class="button_top">Контакты</a>
+</div>
+```
+
+```css
+.bmstu-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 70px;
+  background-color: rgb(0, 108, 220);
+  display: flex;
+  align-items: center;
+  z-index: 100;
+}
+```
+
+2. Кнопка переключения темы
+
+```html
+<button id="theme-toggle" class="theme-btn">☾</button>
+```
+
+```css
+.theme-btn {
+  background: transparent;
+  border: none;
+  color: white;
+  font-size: 1.8rem;
+  cursor: pointer;
+  padding: 0 10px;
+  line-height: 1;
+  transition: transform 0.2s;
+  margin-left: auto;
+}
+
+.theme-btn:hover {
+  transform: scale(1.3);
+}
+```
+
+3. Боковое меню
+
+```html
+<aside class="sidebar" id="sidebar">
+  <nav>
+    <ul class="nav-menu">
+      <li><a href="#" id="nav-home" class="nav-link active"><i class="pi pi-home"></i> Главная</a></li>
+      <li><a href="#" id="nav-author" class="nav-link"><i class="pi pi-user"></i> Автор</a></li>
+      <li><a href="#" id="nav-calc" class="nav-link"><i class="pi pi-calculator"></i> Калькулятор</a></li>
+    </ul>
+  </nav>
+</aside>
+```
+
+```css
+.sidebar {
+  position: fixed;
+  top: 70px;
+  left: 0;
+  width: 250px;
+  height: calc(100vh - 70px);
+  background-color: #ffffff;
+  box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+  transform: translateX(-100%);
+  transition: transform 0.3s ease;
+  z-index: 90;
+}
+
+.sidebar.open {
+  transform: translateX(0);
+}
+
+/* Затемняющий оверлей */
+.overlay {
+  display: none;
+  position: fixed;
+  top: 70px;
+  left: 0;
+  width: 100%;
+  height: calc(100vh - 70px);
+  background: rgba(0,0,0,0.5);
+  z-index: 80;
+}
+
+.overlay.active {
+  display: block;
+}
+
+/* Список навигации */
+.nav-menu {
+  list-style: none;
+  padding: 0;
+  margin: 20px 0 0 0;
+}
+
+.nav-menu li {
+  margin: 0;
+}
+
+.nav-link {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 15px 20px;
+  color: #333;
+  text-decoration: none;
+  font-family: Arial, Helvetica, sans-serif;
+  transition: background 0.2s;
+}
+
+.nav-link i {
+  font-size: 1.3rem;
+  width: 24px;
+  text-align: center;
+}
+
+.nav-link:hover {
+  background-color: rgb(225, 239, 251);
+}
+
+.nav-link.active {
+  background-color: rgb(225, 239, 251);
+  color: rgb(0, 108, 220);
+  font-weight: bold;
+}
+```
+
+4. Страница "Автор"
+```html
+<div id="author-page" class="page" style="display: none;">
+  <h2>Автор</h2>
+  <p>ФИО: Крахмальникова А. И.</p>
+  <p>Группа: ИУ5-46Б</p>
+  <a href="https://github.com/Asgdhd/JavaScript_2026" target="_blank">GitHub</a>
+</div>
+```
+
+```css
+#author-page {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  font-family: Arial, Helvetica, sans-serif;
+}
+```
+
+5. Адаптивность
+
+```css
+@media (min-width: 769px) {
+  /* На широком экране меню всегда открыто */
+  .sidebar {
+    transform: translateX(0);
+  }
+  .menu-toggle {
+    display: none;
+  }
+  .overlay {
+    display: none !important;
+  }
+  .main-content {
+    margin-left: 250px; /* освобождаем место под меню */
+    width: calc(100% - 250px);
+  }
+}
+
+@media (max-width: 768px) {
+  /* На узких экранах гамбургер виден, меню скрыто по умолчанию */
+  .main-content {
+    margin-left: 0;
+    width: 100%;
+  }
+  /* Сайдбар скрыт, открывается по кнопке */
+  .sidebar {
+    transform: translateX(-100%);
+  }
+  .sidebar.open {
+    transform: translateX(0);
+  }
+}
+```
