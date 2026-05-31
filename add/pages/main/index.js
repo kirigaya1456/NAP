@@ -44,6 +44,34 @@ export class MainPage {
         alert.render(`✅ Услуга «${item.name}» добавлена в вашу заявку!`);
     }
 
+    async deleteItem(id) {
+        try {
+            const response = await fetch(`http://localhost:3000/stocks/${id}`, {
+                method: 'DELETE'
+            });
+            if (!response.ok) throw new Error('Ошибка при удалении');
+
+            // Напрямую удаляем элемент из DOM, чтобы не перерисовывать все и не сбрасывать чужие таймеры
+            const cardElement = document.getElementById(`card-${id}`);
+            if (cardElement) cardElement.remove();
+
+            // Обновляем локальный массив, чтобы он оставался актуальным
+            this.data = this.data.filter(item => item.id != id);
+            CatCardComponent.activeTimers.delete(id); // Очищаем статус таймера (на всякий случай)
+        } catch (error) {
+            console.error('Ошибка удаления:', error);
+        }
+    }
+
+    showTimerAlert(item, hasAnyTimer) {
+        const alert = new AlertComponent(this.parent);
+        if (hasAnyTimer) {
+            alert.render(`⚠️ Внимание: в данный момент запущен таймер удаления для одной или нескольких карточек!`);
+        } else {
+            alert.render(`🕒 На данный момент нет ни одного активного таймера удаления.`);
+        }
+    }
+
     async render() {
         this.parent.innerHTML = '';
         this.parent.insertAdjacentHTML('beforeend', this.getHTML());
@@ -56,7 +84,9 @@ export class MainPage {
             card.render(
                 cat,
                 this.clickCard.bind(this),
-                this.showAlert.bind(this)
+                this.showAlert.bind(this),
+                this.deleteItem.bind(this),
+                this.showTimerAlert.bind(this)
             );
         });
     }
